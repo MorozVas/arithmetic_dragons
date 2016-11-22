@@ -23,6 +23,7 @@ def game_tournament(hero, dragon_list):
             if dragon.check_answer(answer):
                 hero.attack(dragon)
                 print('Верно! \n** дракон кричит от боли **')
+                hero.set_experience()
             else:
                 dragon.attack(hero)
                 print('Ошибка! \n** вам нанесён удар... **')
@@ -43,9 +44,9 @@ def start_game():
         print('Представьтесь, пожалуйста: ', end = '')
         hero = Hero(input())
 
-        dragon_number = 3
+        dragon_number = 1
         dragon_list = generate_dragon_list(dragon_number)
-        assert(len(dragon_list) == 3)
+        assert(len(dragon_list) == dragon_number)
         print('У Вас на пути', dragon_number, 'драконов!')
         game_tournament(hero, dragon_list)
 
